@@ -1,0 +1,129 @@
+;`
+;/*  Fichier Ex_NumC_Tp3_A16.java
+ *  À imprimer+étudier pour préparer une partie du FINAL
+ *
+ *
+ */
+class Personne
+{
+  private String nomPre; /
+  private double globale;
+
+  // constructeurs + méthodes pour appliquer sur un étudiant
+
+  public Personne(String nP, double glob)
+  {
+  	nomPre = nP;
+  	globale = glob;
+  }
+
+  public Personne (String nP)
+  { nomPre = nP;
+    globale = 72.8; // par défaut
+  }
+
+  public Personne(String nP, double intra, double fin, double tps)
+  {
+  	nomPre = nP;
+  	globale = 0.30 * intra + 0.40 * fin + 0.30 * tps;
+  }
+
+  public double getGlobale()
+  {
+  	return globale;
+  }
+
+  public void afficher(String message)
+  {
+  	System.out.printf("%s : nom et prénom : %s et globale : %.1f\n",
+  	                          message, nomPre.toUpperCase(), globale);
+  }
+
+  public void setGlobale(double nouvGlobale)
+  {
+  	globale = nouvGlobale ;
+  }
+
+  public String getNomPre()
+  {
+  	return nomPre;
+  }
+
+}
+
+public class TestPersonne {
+
+    static void afficher(Etudiant[] etud, int nbEtud)
+    {
+    	System.out.printf("Contenu du tableau des %d étudiants :\n", nbEtud);
+    	for(int i = 0 ; i < nbEtud ; i++)
+    		System.out.printf("%3d) %20s %8.1f\n", i, etud[i].getNomPre(),
+    		   etud[i].getGlobale());
+        System.out.printf("\n\n");
+
+
+    }
+
+
+    static double mini(Etudiant[] etud, int nbEtud)
+    {
+       double plusFaible = Double.MAX_VALUE;
+       for(int i = 0; i < nbEtud; i++)
+       	 if (etud[i].getGlobale() < plusFaible)
+       	 	    plusFaible = etud[i].getGlobale();
+
+       return plusFaible;
+
+
+    }
+
+
+    public static void main(String[] args) {
+      // instancier 3 employés par 3 constructeurs différents
+      // selon votre imagination
+
+      Personne pers1 = new Personne("Roy Serge","19/05/1997", 3),
+               pers2 = new Personne("Charboneau Jacques","31/12/1990"), // par défaut 1 tasse de cafés
+               pers3 = new Personne("Pilon Lise","08/05/1994", 2);
+
+      // afficher la note globale de etud3 :
+
+      System.out.printf(" note glabal etud3 : %.1f\n",
+                           pers3.getGlobale() );
+
+      // afficher toutes les infos de etud2:
+      pers2.afficher("Infos de etud2")                     ;
+
+      // modifier la note globale de etud1 : celle de etud2 où on ajoute 8.5
+      pers1.setGlobale(etud2.getGlobale()-1);
+      pers1.afficher("Infos de etud1 après cette modification");
+
+
+      // déclarer + initialiser un tableau de 6 étudiants dont le
+      // contenu est à votre imagination
+
+      Etudiant[] etud = { new Personne("Tremblay Veronique","16/11/1992", 2),
+                          new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
+                          new Personne("Choquette Alain","23/05/1996", 5),
+                          new Personne("Hudon charles", "19/02/1985", 0),
+                          new Personne("Tremblay Nicole", "30/05/1991", 2),
+                      //  new Personne("Roy Pierre", 83.9) };
+      int nbEtud = etud.length;
+
+      // afficher le contenu de ce tableau
+
+      Ex_NumC_Tp3_A16.afficher(etud, nbEtud)                    ;
+
+      // déterminer + afficher la plus faible note globale
+
+      System.out.printf("La plus faible note globale : %.1f\n",
+                   mini(etud, nbEtud));
+
+    }
+}
+/* Syntaxe et Exécution:
+
+
+*/
+
+
