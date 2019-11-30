@@ -1,129 +1,111 @@
-;`
-;/*  Fichier Ex_NumC_Tp3_A16.java
- *  À imprimer+étudier pour préparer une partie du FINAL
- *
- *
- */
-class Personne
-{
-  private String nomPre; /
-  private double globale;
+class Personne {
+	//Déclaration des attributs :
+	private String nomPre;
+	private String naissance;
+	private double cafe;
+	// constructeurs + méthodes pour appliquer sur un étudiant
+	public Personne(String nP, double glob)  {
+	  	nomPre = nP;
+	  	cafe = glob;
+	}
+	public Personne (String nP)  { nomPre = nP;
+    	cafe = 72.8; // par défaut
+	}
+	public Personne(String nP, double intra, double fin, double tps)  {
+		nomPre = nP;
+		cafe = 0.30 * intra + 0.40 * fin + 0.30 * tps;
+	}
 
-  // constructeurs + méthodes pour appliquer sur un étudiant
+	public Personne(String nP, String naiss, int glob)  {
+	  	nomPre = nP;
+	  	naissance = naiss;
+	  	cafe = glob;
+	}
+	public Personne(String nP, String naiss)  {
+	  	nomPre = nP;
+	  	naissance = naiss;
+	  	cafe = 0;
+	}
 
-  public Personne(String nP, double glob)
-  {
-  	nomPre = nP;
-  	globale = glob;
-  }
+	public void afficher(String message)  {
+	  	System.out.printf("%s : nom et prénom : %s et cafe : %.1f\n, naissance : %s ", message , nomPre.toUpperCase(), cafe, naissance);
+	 }
 
-  public Personne (String nP)
-  { nomPre = nP;
-    globale = 72.8; // par défaut
-  }
+	public double getCafe()  				    {  	return cafe;  		}
 
-  public Personne(String nP, double intra, double fin, double tps)
-  {
-  	nomPre = nP;
-  	globale = 0.30 * intra + 0.40 * fin + 0.30 * tps;
-  }
-
-  public double getGlobale()
-  {
-  	return globale;
-  }
-
-  public void afficher(String message)
-  {
-  	System.out.printf("%s : nom et prénom : %s et globale : %.1f\n",
-  	                          message, nomPre.toUpperCase(), globale);
-  }
-
-  public void setGlobale(double nouvGlobale)
-  {
-  	globale = nouvGlobale ;
-  }
-
-  public String getNomPre()
-  {
-  	return nomPre;
-  }
-
+	public void setCafe(double nouvCafe)  {  	cafe = nouvCafe ; }
+	public String getNomPre()					{  	return nomPre;  		}
 }
+
 
 public class TestPersonne {
 
-    static void afficher(Etudiant[] etud, int nbEtud)
-    {
-    	System.out.printf("Contenu du tableau des %d étudiants :\n", nbEtud);
-    	for(int i = 0 ; i < nbEtud ; i++)
-    		System.out.printf("%3d) %20s %8.1f\n", i, etud[i].getNomPre(),
-    		   etud[i].getGlobale());
+	static void afficher(Personne[] p, int nbP)    {
+		
+    	System.out.printf("Contenu du tableau des %d Personne :\n", nbP);
+    	for(int i = 0 ; i < nbP ; i++)
+    		System.out.printf("%3d) %20s %8.1f\n", i, p[i].getNomPre(), p[i].getCafe());
         System.out.printf("\n\n");
-
-
     }
 
 
-    static double mini(Etudiant[] etud, int nbEtud)
-    {
-       double plusFaible = Double.MAX_VALUE;
-       for(int i = 0; i < nbEtud; i++)
-       	 if (etud[i].getGlobale() < plusFaible)
-       	 	    plusFaible = etud[i].getGlobale();
+    static double mini(Personne[]  pers, int nbP)    {
+    	double plusFaible = Double.MAX_VALUE;
+    	for(int i = 0; i < nbP; i++)
+       	 	if (pers[i].getCafe() < plusFaible)
+       	 	    plusFaible = pers[i].getCafe();
 
        return plusFaible;
-
-
     }
+    
+	public static void main(String[] args) {
+		  // instancier 3 employés par 3 constructeurs différents
+	      // selon votre imagination
+	      Personne pers1 = new Personne("Roy Serge","19/05/1997", 3),
+	               pers2 = new Personne("Charboneau Jacques","31/12/1990"), // par défaut 1 tasse de cafés
+	               pers3 = new Personne("Pilon Lise","08/05/1994", 2);
+
+	      // afficher la note globale de pers3 :
+	      System.out.printf(" Le nombre de cafe de la pers3 : %.1f\n", pers3.getCafe() );
+
+	      // afficher toutes les infos de pers2:
+	      pers1.afficher("Infos de la pers1")                     ;
+	      
+	      // afficher toutes les infos de pers2:
+	      pers2.afficher("Infos de la pers2")                     ;
+
+	      // afficher toutes les infos de pers2:
+	      pers3.afficher("Infos de la pers3")                     ;
+
+	      // modifier la note globale de pers1 : celle de pers2 où on ajoute 8.5
+	      pers1.setCafe(pers2.getCafe()-1);
+	      pers1.afficher("Infos de pers1 après cette modification");
 
 
-    public static void main(String[] args) {
-      // instancier 3 employés par 3 constructeurs différents
-      // selon votre imagination
+	      // déclarer + initialiser un tableau de 6 étudiants dont le
+	      // contenu est à votre imagination
 
-      Personne pers1 = new Personne("Roy Serge","19/05/1997", 3),
-               pers2 = new Personne("Charboneau Jacques","31/12/1990"), // par défaut 1 tasse de cafés
-               pers3 = new Personne("Pilon Lise","08/05/1994", 2);
+	      Personne[] pers = { new Personne("Tremblay Veronique","16/11/1992", 2),
+	                          new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
+	                          new Personne("Choquette Alain","23/05/1996", 5),
+	                          new Personne("Hudon charles", "19/02/1985", 0),
+	                          new Personne("Tremblay Nicole", "30/05/1991", 2),
+	                      	  new Personne("Roy Pierre", 83.9) };
+	      int nbP = pers.length;
 
-      // afficher la note globale de etud3 :
+	      // afficher le contenu de ce tableau
 
-      System.out.printf(" note glabal etud3 : %.1f\n",
-                           pers3.getGlobale() );
+	      pers[1].afficher("toto");
+	      pers1.afficher("mimi");
 
-      // afficher toutes les infos de etud2:
-      pers2.afficher("Infos de etud2")                     ;
+	      // déterminer + afficher la plus faible note globale
 
-      // modifier la note globale de etud1 : celle de etud2 où on ajoute 8.5
-      pers1.setGlobale(etud2.getGlobale()-1);
-      pers1.afficher("Infos de etud1 après cette modification");
-
-
-      // déclarer + initialiser un tableau de 6 étudiants dont le
-      // contenu est à votre imagination
-
-      Etudiant[] etud = { new Personne("Tremblay Veronique","16/11/1992", 2),
-                          new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
-                          new Personne("Choquette Alain","23/05/1996", 5),
-                          new Personne("Hudon charles", "19/02/1985", 0),
-                          new Personne("Tremblay Nicole", "30/05/1991", 2),
-                      //  new Personne("Roy Pierre", 83.9) };
-      int nbEtud = etud.length;
-
-      // afficher le contenu de ce tableau
-
-      Ex_NumC_Tp3_A16.afficher(etud, nbEtud)                    ;
-
-      // déterminer + afficher la plus faible note globale
-
-      System.out.printf("La plus faible note globale : %.1f\n",
-                   mini(etud, nbEtud));
-
-    }
+	      System.out.printf("La plus faible consommation de cafe : %.1f\n", mini(pers, nbP));
+	}
 }
-/* Syntaxe et Exécution:
+	/* Syntaxe et Exécution:
 
 
-*/
+	*/
 
 
