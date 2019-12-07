@@ -36,28 +36,21 @@ class Personne {
 	  	System.out.printf("%s :\n Nom et Prénom : %s \n Consommation de cafe par jour : %.1f\n Date de naissance : %s\n ", message , nomPre.toUpperCase(), cafe, naissance);
 	 }
 
-	public double getCafe()  				    {  	return cafe;  		}
-
-	public void setCafe(double nouvCafe)  {  	cafe = nouvCafe ; }
-	public String getNomPre()					{  	return nomPre;  		}
+	public double getCafe()  				{  	return cafe;  		}
+	public void setCafe(double nouvCafe)  	{  	cafe = nouvCafe ; 	}
+	public String getNomPre()				{  	return nomPre;  	}
 }
 
 
 public class TestPersonne {
-
 	
-
-	static void afficher(Personne[] pers, int nbP)    {
+	static void afficher(Personne[] pers, int nbP, String msg)    {
 		
-    	System.out.printf("1- Contenu du tableau des %d Personne :\n", nbP);
+    	System.out.printf("1 & 4- Contenu du tableau des %d Personne %s :\n", nbP, msg);
     	for(int i = 0 ; i < nbP ; i++)
     		System.out.printf("%3d) %20s %8.1f\n", i, pers[i].getNomPre(), pers[i].getCafe());
         System.out.printf("\n\n");
     }
-
-
-		
-
 
     static double max(Personne[]  pers, int nbP)    {
     	double plusGrande = Double.MIN_VALUE;
@@ -68,6 +61,22 @@ public class TestPersonne {
        return plusGrande;
     }
     
+    static void reduireCafe(Personne [] pers, int nbP, int deCombien){
+    	for(int  i=0; i<nbP; i++) {
+    		if(pers [i].getCafe() > 0)
+    		pers[i].setCafe(pers[i].getCafe() - 1);
+    	}
+    	
+    }
+    
+    static double mai(Personne[]  pers, int nbP)    {
+    	for(char chiffre = '0'; chiffre <= 12; i++)
+       	 	if (mai.indesOf(chiffre == 5)
+       	 	    System.out.printf ("%c ", chiffre);
+       	        System.out.printf ("%c ", chiffre);
+
+       
+    }
 	public static void main(String[] args) {
 		  // instancier 3 employés par 3 constructeurs différents
 	      // selon votre imagination
@@ -76,14 +85,14 @@ public class TestPersonne {
 	               pers3 = new Personne("Pilon Lise","08/05/1994", 2);
 
 	      Personne[] pers = { new Personne("Tremblay Veronique","16/11/1992", 2),
-                  new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
-                  new Personne("Choquette Alain","23/05/1996", 5),
-                  new Personne("Hudon charles", "19/02/1985", 0),
-                  new Personne("Tremblay Nicole", "30/05/1991", 2)};
-              	  
-	      		int nbP = pers.length;
+                new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
+                new Personne("Choquette Alain","23/05/1996", 5),
+                new Personne("Hudon charles", "19/02/1985", 0),
+                new Personne("Tremblay Nicole", "30/05/1991", 2)};
+            	  
+	      int nbP = pers.length;
 
-	      afficher(pers,nbP);
+	      afficher(pers,nbP, ", avant le tri");
 	      System.out.printf("2- La plus grande consommation de cafe : %.1f\n", max(pers, nbP));
 	      // afficher la note globale de pers3 :
 	      System.out.printf("0- Le nombre de cafe de la personne 3 : %.1f\n", pers3.getCafe() );
@@ -100,22 +109,23 @@ public class TestPersonne {
 	      // afficher toutes les infos de pers2:
 	      pers3.afficher("0- Information de la personne 3");
 
-	      // modifier la note globale de pers1 : celle de pers2 où on ajoute 8.5
-	    //  pers.setCafe(pers.getCafe()-1.0);
 	      
-
-
-	      // déclarer + initialiser un tableau de 6 étudiants dont le
-	      // contenu est à votre imagination
-
 	      
-	      // afficher le contenu de ce tableau
+	      //3. Réduire de 1 tasse de moins pour les personnes qui consomment de café. 
+	      reduireCafe(pers, nbP, 1);
+
+	    
+	      
+	      //4. Réafficher   le tableau 
+	      afficher(pers, nbP, ", après suppression");
+	      mai (pers,nbP);
+	    
 
 	     // pers[1].afficher("toto");
 	     // pers1.afficher("mimi");
 	      
 
-	      // déterminer + afficher la plus faible note globale
+	     
 
 	      
 	}
