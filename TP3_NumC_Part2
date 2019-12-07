@@ -15,17 +15,22 @@ class Personne {
 		nomPre = nP;
 		cafe = 0.30 * intra + 0.40 * fin + 0.30 * tps;
 	}
-
 	public Personne(String nP, String naiss, int glob)  {
 	  	nomPre = nP;
 	  	naissance = naiss;
 	  	cafe = glob;
-	}
+	  	}
 	public Personne(String nP, String naiss)  {  // pour modifier cafe de Sage Lisette par défaut.
 	  	nomPre = nP;
 	  	naissance = naiss;
 	  	cafe = 1;               
 	}
+//	
+//	public Personne (String mai) {
+//		nomPre = nP;
+//		naissance = naiss;
+//		
+//	}
 
 	public void afficher(String message)  {
 	  	System.out.printf("%s :\n Nom et Prénom : %s \n Consommation de cafe par jour : %.1f\n Date de naissance : %s\n ", message , nomPre.toUpperCase(), cafe, naissance);
@@ -40,22 +45,27 @@ class Personne {
 
 public class TestPersonne {
 
+	
+
 	static void afficher(Personne[] pers, int nbP)    {
 		
-    	System.out.printf("Contenu du tableau des %d Personne :\n", nbP);
+    	System.out.printf("1- Contenu du tableau des %d Personne :\n", nbP);
     	for(int i = 0 ; i < nbP ; i++)
     		System.out.printf("%3d) %20s %8.1f\n", i, pers[i].getNomPre(), pers[i].getCafe());
         System.out.printf("\n\n");
     }
 
 
-    static double mini(Personne[]  pers, int nbP)    {
-    	double plusFaible = Double.MAX_VALUE;
-    	for(int i = 0; i < nbP; i++)
-       	 	if (pers[i].getCafe() < plusFaible)
-       	 	    plusFaible = pers[i].getCafe();
+		
 
-       return plusFaible;
+
+    static double max(Personne[]  pers, int nbP)    {
+    	double plusGrande = Double.MIN_VALUE;
+    	for(int i = 0; i < nbP; i++)
+       	 	if (pers[i].getCafe() > plusGrande)
+       	 	    plusGrande = pers[i].getCafe();
+
+       return plusGrande;
     }
     
 	public static void main(String[] args) {
@@ -65,43 +75,49 @@ public class TestPersonne {
 	               pers2 = new Personne("Charboneau Jacques","31/12/1990"), // par défaut 1 tasse de cafés
 	               pers3 = new Personne("Pilon Lise","08/05/1994", 2);
 
-	      // afficher la note globale de pers3 :
-	      System.out.printf(" Le nombre de cafe de la pers3 : %.1f\n", pers3.getCafe() );
+	      Personne[] pers = { new Personne("Tremblay Veronique","16/11/1992", 2),
+                  new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
+                  new Personne("Choquette Alain","23/05/1996", 5),
+                  new Personne("Hudon charles", "19/02/1985", 0),
+                  new Personne("Tremblay Nicole", "30/05/1991", 2)};
+              	  
+	      		int nbP = pers.length;
 
+	      afficher(pers,nbP);
+	      System.out.printf("2- La plus grande consommation de cafe : %.1f\n", max(pers, nbP));
+	      // afficher la note globale de pers3 :
+	      System.out.printf("0- Le nombre de cafe de la personne 3 : %.1f\n", pers3.getCafe() );
+
+	      
+	     
+		
 	      // afficher toutes les infos de pers2:
-	      pers1.afficher("Information de la personne 1")                     ;
+	      pers1.afficher("0- Information de la personne 1");
 	      
 	      // afficher toutes les infos de pers2:
-	      pers2.afficher("Information de la personne 2")                     ;
+	      pers2.afficher("0- Information de la personne 2");
 
 	      // afficher toutes les infos de pers2:
-	      pers3.afficher("Information de la personne 3")                     ;
+	      pers3.afficher("0- Information de la personne 3");
 
 	      // modifier la note globale de pers1 : celle de pers2 où on ajoute 8.5
-	    //  pers2.setCafe(pers2.getCafe()-1.0);
+	    //  pers.setCafe(pers.getCafe()-1.0);
 	      
 
 
 	      // déclarer + initialiser un tableau de 6 étudiants dont le
 	      // contenu est à votre imagination
 
-	      Personne[] pers = { new Personne("Tremblay Veronique","16/11/1992", 2),
-	                          new Personne("Sage Lisette","02/05/1990"), // 1 tasse par defaut 
-	                          new Personne("Choquette Alain","23/05/1996", 5),
-	                          new Personne("Hudon charles", "19/02/1985", 0),
-	                          new Personne("Tremblay Nicole", "30/05/1991", 2)};
-	                      	  
-	      int nbP = pers.length;
-
+	      
 	      // afficher le contenu de ce tableau
 
-	      pers[1].afficher("toto");
-	      pers1.afficher("mimi");
-	      afficher(pers,nbP);
+	     // pers[1].afficher("toto");
+	     // pers1.afficher("mimi");
+	      
 
 	      // déterminer + afficher la plus faible note globale
 
-	      System.out.printf("La plus faible consommation de cafe : %.1f\n", mini(pers, nbP));
+	      
 	}
 }
 	/* Syntaxe et Exécution:
