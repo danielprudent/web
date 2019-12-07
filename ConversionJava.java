@@ -14,7 +14,7 @@ etait initialement en C
 
 public class ConversionJava {
 	
-	static int combien(int age[], int nbPers, int limit )					//int fonction combien, integer du tableau age, entier du nbpersonne et de la limite
+	static int combien(int [] age, int nbPers, int limit )					//int fonction combien, integer du tableau age, entier du nbpersonne et de la limite
 	  { int i;														// initialiser l entier i 
 	  	int n = 0;													// initialiser le n a zero
 	  	for( i = 0; i < nbPers; i++)								//
@@ -23,7 +23,7 @@ public class ConversionJava {
 	  	return n;													// le retour du N 
 	}
 	  	
-	int combienb(int nbcafe[], int nbPers, int limitb )				// fonction pour savoir la moy de consomation par jour de cafe avec return
+	int combienb(int [] nbcafe, int nbPers, int limitb )				// fonction pour savoir la moy de consomation par jour de cafe avec return
 	  { int i;
 	  	int n = 0;
 	  	for( i = 0; i < nbPers; i++)
@@ -33,7 +33,7 @@ public class ConversionJava {
 	}
 	  	
 	  	
-	static int min (int nbcafe[], int nbPers, int borne)					// consomation minimal de cafe fonctiion avec return
+	static int min (int [] nbcafe, int nbPers, int borne)					// consomation minimal de cafe fonctiion avec return
 	  {
 	  	//int n = 0;
 	  	int i = 0;
@@ -45,7 +45,7 @@ public class ConversionJava {
 	  }
 
 	  	
-	static int minb (int age[], int nbPers, int borneb)				// fonction avec return age min des employes integer
+	static int minb (int [] age, int nbPers, int borneb)				// fonction avec return age min des employes integer
 	  {
 	  //	int n = 0;
 	  	int i = 0;
@@ -77,7 +77,7 @@ public class ConversionJava {
 		
 	}
 
-	 static double moyenne(int tableau[], int nbElem )  		// fonction pour la moyenne de l'age avec un return en double et cons min cafe 
+	 static double moyenne(int [] tableau, int nbElem )  		// fonction pour la moyenne de l'age avec un return en double et cons min cafe 
 	 {  int i;
 	    double somme = 0.0;
 	    for( i = 0; i < nbElem; i++) 
