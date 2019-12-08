@@ -137,7 +137,7 @@ public class TestPersonne {  // Class TestPersonne
 	      System.out.printf("\n\n");
 	    
 	      
-	      // afficher toutes les infos de pers2:
+	      // afficher toutes les infos de pers1:
 	      pers1.afficher("0 - Information de la personne 1");
 	      System.out.printf("\n\n");
 	      
@@ -145,7 +145,7 @@ public class TestPersonne {  // Class TestPersonne
 	      pers2.afficher("0 - Information de la personne 2");
 	      System.out.printf("\n\n");
 
-	      // afficher toutes les infos de pers2:
+	      // afficher toutes les infos de pers3:
 	      pers3.afficher("0 - Information de la personne 3");
 	      System.out.printf("\n\n");
 
