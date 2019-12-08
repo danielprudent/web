@@ -53,11 +53,11 @@ public class TestPersonne {  // Class TestPersonne
         System.out.printf("\n\n");
     }
 
-    static double max(Personne[]  pers, int nbP)    { // condition pour le cafe plus grand et les infos de la personne
-    	double plusGrande = Double.MIN_VALUE;
+    static int max(Personne[]  pers, int nbP)    { // condition pour le cafe plus grand et les infos de la personne
+    	int plusGrande = 0;
     	for(int i = 0; i < nbP; i++)
-       	 	if (pers[i].getCafe() > plusGrande)
-       	 	    plusGrande = pers[i].getCafe();
+       	 	if (pers[i].getCafe() > pers[plusGrande].getCafe())
+       	 	    plusGrande = i;
 
        return plusGrande ;
     }
@@ -97,8 +97,8 @@ public class TestPersonne {  // Class TestPersonne
 	      afficher(pers,nbP, ", avant le tri");
 	      
 	      // afficher la plus grande consommation de cafe de la personne du tableau
-	      System.out.printf("2 - La plus grande consommation de cafe : %.1f\n", max(pers, nbP));
-	     
+	      //System.out.printf("2 - La plus grande consommation de cafe : %.1f\n", max(pers, nbP));
+	      pers[max(pers, nbP)].afficher("2 - La plus grande consommation de cafe: \n");
 	      
 	      
 	      //3. Réduire de 1 tasse de moins pour les personnes qui consomment de café. 
@@ -132,6 +132,50 @@ public class TestPersonne {  // Class TestPersonne
 	}
 }
 	/* Syntaxe et Exécution:
+1 & 3 & 4 - Contenu du tableau des 5 Personne , avant le tri :
+  0)   Tremblay Veronique      2.0
+  1)         Sage Lisette      1.0
+  2)      Choquette Alain      5.0
+  3)        Hudon charles      0.0
+  4)      Tremblay Nicole      2.0
+
+
+2 - La plus grande consommation de cafe: 
+ :
+ Nom et Prénom : CHOQUETTE ALAIN 
+ Consommation de cafe par jour : 5.0
+ Date de naissance : 23/05/1996
+ 
+
+1 & 3 & 4 - Contenu du tableau des 5 Personne , Apres la réduction de café :
+  0)   Tremblay Veronique      1.0
+  1)         Sage Lisette      0.0
+  2)      Choquette Alain      4.0
+  3)        Hudon charles      0.0
+  4)      Tremblay Nicole      1.0
+
+
+5 - Nombre de personnes qui sont nées au mois de mai : 3
+
+
+0 - Information de la personne 1 :
+ Nom et Prénom : ROY SERGE 
+ Consommation de cafe par jour : 3.0
+ Date de naissance : 19/05/1997
+ 
+
+0 - Information de la personne 2 :
+ Nom et Prénom : CHARBONEAU JACQUES 
+ Consommation de cafe par jour : 1.0
+ Date de naissance : 31/12/1990
+ 
+
+0 - Information de la personne 3 :
+ Nom et Prénom : PILON LISE 
+ Consommation de cafe par jour : 2.0
+ Date de naissance : 08/05/1994
+ 
+
 
 
 	*/
