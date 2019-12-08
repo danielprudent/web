@@ -1,4 +1,25 @@
-class Personne { // Class personne
+/* Auteur : Daniel Prudent, cour IFT1810 
+ * TP3 partie C 
+ * Le but de ce lab est premierement ce familiariser avec Java
+ * en faisant deux class : TestPersonne et Personne 
+ * et construire des constructeurs et des methodes 
+ * pour faire fonctionner le programme appris en partie en classe
+ * et en TP. Deuxiemement, nous devons ecrire deux constructeur pour 
+ * instancier trois personne ; pers1-2-3
+ * De plus, ecrire la methode pour avoir acces pour afficher les infos de
+ * ces personnes
+ * troisiement, nous devons ecrire dans la methode principale (main)
+ * un tableau de 5 personnes avec leur date de naissance et leur consommation en cafe
+ * par jour ce que nous avons a faire apres etait de 
+ * 1- afficher le tableau au debut
+ * 2- determiner et afficher la personne qui consomme le plus de cafe par jour
+ * 3- reduire de 1 les personnes qui doivent du cafe et
+ * reafficher le tableau apres 
+ * 5- compter et afficher les personnes qui sont nées en mai dans le tableau 
+ * 
+ */
+  class Personne { // Class personne
+ 
 	//Déclaration des attributs :
 	private String nomPre;
 	private String naissance;
