@@ -49,7 +49,7 @@ public class TestPersonne {  // Class TestPersonne
 		
     	System.out.printf("1 & 3 & 4 - Contenu du tableau des %d Personne %s :\n", nbP, msg);
     	for(int i = 0 ; i < nbP ; i++)
-    		System.out.printf("%3d) %20s %8.1f\n", i, pers[i].getNomPre(), pers[i].getCafe());
+    		System.out.printf("%3d) %20s %8.1f\n", i, pers[i].getNaiss(),pers[i].getCafe());
         System.out.printf("\n\n");
     }
 
@@ -133,11 +133,11 @@ public class TestPersonne {  // Class TestPersonne
 }
 	/* Syntaxe et Exécution:
 1 & 3 & 4 - Contenu du tableau des 5 Personne , avant le tri :
-  0)   Tremblay Veronique      2.0
-  1)         Sage Lisette      1.0
-  2)      Choquette Alain      5.0
-  3)        Hudon charles      0.0
-  4)      Tremblay Nicole      2.0
+  0)           16/11/1992      2.0
+  1)           02/05/1990      1.0
+  2)           23/05/1996      5.0
+  3)           19/02/1985      0.0
+  4)           30/05/1991      2.0
 
 
 2 - La plus grande consommation de cafe: 
@@ -148,11 +148,11 @@ public class TestPersonne {  // Class TestPersonne
  
 
 1 & 3 & 4 - Contenu du tableau des 5 Personne , Apres la réduction de café :
-  0)   Tremblay Veronique      1.0
-  1)         Sage Lisette      0.0
-  2)      Choquette Alain      4.0
-  3)        Hudon charles      0.0
-  4)      Tremblay Nicole      1.0
+  0)           16/11/1992      1.0
+  1)           02/05/1990      0.0
+  2)           23/05/1996      4.0
+  3)           19/02/1985      0.0
+  4)           30/05/1991      1.0
 
 
 5 - Nombre de personnes qui sont nées au mois de mai : 3
