@@ -1,4 +1,14 @@
 
+/*Realiser pour Daniel Prudent 
+ * IFT 1170A 
+ * Afficher teludem et telJean 
+ * 1- afficher la chaine de caractere
+ * 2- compter et afficher selon les directives
+ * 3-compter et afficher selon les directives
+ * 4- chiffre commun entre les deux numero 
+ * 5- determiner et afficher selon les directives 
+
+*/
 public class NumB {
 	 
 	 
@@ -38,15 +48,16 @@ public class NumB {
 	    }
 	 static void commun(String telJean, String telUDM) // methode pour chiffre en commum 
 	 { 
-		    for(int i=0;i<telJean.length();i++){ // vaut 10 
-		        for(int j=0;j<telUDM.length();j++){ // vaut 10 
-		            if(telJean.charAt(i)==telUDM.charAt(j))
-		            	System.out.printf( "%c", telJean.charAt(i));
+		   
+		    	for(char c = '0' ; c <= '9'; c++)
+		            if(telJean.indexOf(c)>= 0 )
+		            if(telUDM.indexOf(c)>= 0 )
+		            	System.out.printf( "%c",c);
 
 		        }
 
-		    }
-		}
+		    
+		
 	 
 	 static char maxi(String telUDM)// methode plus grand chiffre du teludem 
 	    {
@@ -101,6 +112,16 @@ public class NumB {
 	    }
 		// TODO Auto-generated method stub
 
-	
-
+	/*
+	 * 1- Téléphone d’UdeM   : (514)343-6111
+1- Téléphone de Jean : (450)189-7654
+2- Il y a 2 fois le chiffre 3 dans téléphone UdM.
+2- Il y a 4 fois le chiffre 1 dans téléphone UdM.
+2- Il y a 0 fois le chiffre 2 dans téléphone de Jean.
+3- Les chiffres impairs dans    telJean : 1 5 7 9 
+3- Les chiffres pairs dans     telUDM : 4 6 
+1456
+5- Le chiffre le plus grand dans le numero 5143436111 est 6
+5- Le chiffre le plus petit dans le numero 4501897654 est 0
+	 */
 
