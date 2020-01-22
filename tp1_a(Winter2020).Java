@@ -1,3 +1,12 @@
+/* Realiser par Daniel Prudent , IFT 1170A
+ * faire un tableau avec les declaration du tp
+ * poste et nbcafe
+ * 1- afficher les contenu de ces deux tableau 
+ * 2- compter et afficher selon les directives donnees 
+ * 3- calculer et afficher consommaiton moyenne de cafe programmeur avec un chiffre real
+ * 4- determiner et afficher la consommation max cafe analystes
+ * 5- determiner et afficher consommation mininal cafe operateur 
+ */
 public class NumA {
 	
 	   static int nombre ( char statutVoulu, char[] statut, int nbPers) // compteur pour operateur et analystes et secretaires 
@@ -117,5 +126,3 @@ Indice  Nbcafe	Poste
   */
 
 
-
- 
