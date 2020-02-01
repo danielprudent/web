@@ -100,6 +100,7 @@ public class TestPersonne {
      //trier(etud, nbEtud); // selon les notes globales
 
      afficher(etud, "après le tri selon les notes globales");
+     System.out.printf("\nLe min .....: %f", min(etud, nbEtud));
 }
 	 
 	 
@@ -111,13 +112,13 @@ static void afficher (Etudiant[] etud, String mess) {
 	}    		   
     System.out.printf("\n\n");
 }
-static int max(Etudiant[]  etud, int nbP)    { // condition pour le cafe plus grand et les infos de la personne
-	int plusGrande = 0;
+static double min(Etudiant[]  etud, int nbP)    { // condition pour le cafe plus grand et les infos de la personne
+	double pluspetit = 1000000;
 	for(int i = 0; i < nbP; i++)
-   	 	if (etud[i].getCF() > etud[plusGrande].getCF())
-   	 	    plusGrande = i;
+   	 	if (etud[i].getCF() < pluspetit)
+   	 		pluspetit = etud[i].getCF();
 
-   return plusGrande ;
+   return pluspetit;
 }
 
 //	    static void trier(Etudiant[] etud, int nbEtud)
@@ -142,11 +143,10 @@ static int max(Etudiant[]  etud, int nbP)    { // condition pour le cafe plus gr
 	
 	public static void main(String[] args) {
 		
-		
- demo2();
- 
+		demo2();
+		//System.out.printf("\nLe min .....: %f", min(etud, nbEtud));
 
- System.out.printf("\n\n");      
+		System.out.printf("\n\n");      
 		
 	 
 		
@@ -160,5 +160,4 @@ static int max(Etudiant[]  etud, int nbP)    { // condition pour le cafe plus gr
 		
 		
 	}
-	}
-
+}
