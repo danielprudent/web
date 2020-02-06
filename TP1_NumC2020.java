@@ -1,4 +1,17 @@
-class Etudiant {
+/* Auteur : Daniel Prudent, IFT1170A TP3_NumC 
+ * 1.	afficher le contenu du tableau pers au début;
+2.	déterminer et afficher les informations d’une personne qui consomme le moins de café
+3.   réduire 1 tasse de moins pour les personnes qui consomment de café. 
+      On réaffiche le tableau;
+      4.  trier le tableau selon l’année de naissance puis réafficher le tableau après le tri.
+      5.  compter et afficher le nombre de personnes qui sont nées en 1990
+
+ * 
+ * 
+ * 
+ * 
+ */
+class Etudiant {// constructeur 
 	
 	private String date; // "29/06/1996"
 	private int cafe; // 2.0 cafe
@@ -12,74 +25,48 @@ class Etudiant {
 	this.cafe  = cafe; // ce this est optionnel (facultatif)
 	}
 	
-	public Etudiant(String date)
+	public Etudiant(String date) // note par defaut 
 	{
 	this(date, 1); // note globale par défaut
 	}
 	
-	//	public int rangMois()
-	//	{
-	//	return Integer.parseInt( date.substring(3,6)) % 50 ;
-	//	}
-	
-	//	public String getMois()
-	//	{
-	//	String[] nomMois = { "Janvier", "Février", "Mars", "Avril", "Mai",
-	//	                   "Juin", "Juillet", "Août", "Septembre",
-	//	                   "Octobre", "Novembre", "Décembre"};
-	//	return nomMois[rangMois()-1];
-	//	
-	//	}
-	//	public int getdate()
-	//	{
-	//	return Integer.parseInt(date.substring(0,3));
-	//	}
+
 	
 	
 	
-	//	public int getJour()
-	//	{
-	//	return Integer.parseInt(date.substring(0,3));
-	//	}
-	
-		public int getAnnee()
+		public int getAnnee() // retour l'annee seulement 
 		{
 		return  Integer.parseInt(date.substring(7));	}
 	
-		//public String getSexe()
-		//{
-		//return date.charAt(6) >= '5' ? "féminin":"masculin";
-		//}
-	
-	
-		public void afficher()
+		
+		public void afficher() // le format d'affichage pour println
 		{
 		System.out.printf("%s date: %s  cafe : %d %s %d globale : %.1f\n",
 			date, cafe);
 		}
 	
-		public String getDT()
+		public String getDT() // pour date de l'etudiant 
 		{
 		return date;
 		}
 		
 		public String toString() 	//Redéfinition de toString(): Retourne le format d'affichage d'un Objet de la classe
 	    { 
-			return String.format("%s - %d  tasses", date, cafe);
+			return String.format("%s -	%d tasses", date, cafe);
 	    } 
-		public int getCF()
+		public int getCF()  // pour cafe 
 		{
 		return cafe;
 		}
 
-	
+	// pour reduire cafe
 		
 		public int getCafe()  				{  	return cafe;  		}
 		public void setCF(int nouvCafe)  	{  	cafe = nouvCafe ; 	}
 }
 
 
-public class TestPersonne {
+public class TestPersonne { // class TestPersonne
 	
 	
 	
@@ -121,7 +108,7 @@ public class TestPersonne {
 		  return n ;
 	}   
 	
-	static void trier(Etudiant[] etud, int nbEtud)
+	static void trier(Etudiant[] etud, int nbEtud) // pour trier selon l'annee de naissance 
 	{
 		for(int i = 0; i < nbEtud-1; i++)
 		{
@@ -139,7 +126,7 @@ public class TestPersonne {
 	}
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {  // fonction principale 
 		
 		//demo2();
 		
@@ -158,7 +145,7 @@ public class TestPersonne {
 //			    for (int i=0; i<nbEtud; i++)
 //			    	System.out.printf("\nAnnée : %s ", etud[i].getAnnee());
 			    
-			     afficher (etud, "1- au début");
+			     afficher (etud, "\n1- Au début");
 			   
 			     
 			     
@@ -166,24 +153,24 @@ public class TestPersonne {
 			     
 			     //Pour afficher information de la personne avec le moins de cafe
 			    int m = min(etud, nbEtud);
-			   	System.out.println(m + ")" + "\t" + etud[m].getDT() + "\t" + etud[m].getCF() + " tasses");
-			   	System.out.printf("\t%s\n", etud[m].toString());
-			     
+			
+				System.out.printf("2- Information de la personne qui consomme le moins de café: \n\t%s\n", etud[m].toString());
+				System.out.printf("\n\n");  
 
 				
 				 // Pour reduire le cafe de 1 (tout les etudiants)
 				reduireCafe(etud,nbEtud,1);
-				  afficher(etud, "3- après la reduction");
+				  afficher(etud, "\n3- Après la reduction");
 				
-				
+				// pour trier et afficher apres le tri la methode 
 				  trier(etud,nbEtud);
-				  afficher(etud, "4- après le tri selon les notes globales");
+				  afficher(etud, "\n4- Après le tri selon l'année de naissance");
 				     
-				  
+				  // pour compter et afficher le nombre de personne nee en 1990 
 				  System.out.printf("5 - Nombre de personnes qui sont nées en 1990 : %d\n",
 			               nombre(etud, nbEtud, 1990));
 
-		System.out.printf("\n\n");      
+		System.out.printf("\n\n");      // passe deux lignes 
 		
 	 
 		
@@ -198,3 +185,47 @@ public class TestPersonne {
 		
 	}//main
 }//TestPersonne
+
+
+/*
+Indice	Date	Café :
+Contenu du tableau 
+1- Au début :
+0)		16/05/1992	2 tasses
+1)		02/01/1990	1 tasses
+2)		23/05/1990	5 tasses
+3)		19/02/1985	0 tasses
+4)		30/05/1991	2 tasses
+5)		31/01/1990	4 tasses
+
+
+2- Information de la personne qui consomme le moins de café 
+		19/02/1985 -	0 tasses
+
+
+Contenu du tableau 
+3- Après la reduction :
+0)		16/05/1992	1 tasses
+1)		02/01/1990	0 tasses
+2)		23/05/1990	4 tasses
+3)		19/02/1985	0 tasses
+4)		30/05/1991	1 tasses
+5)		31/01/1990	3 tasses
+
+
+Contenu du tableau 
+4- Après le tri selon l'année de naissance :
+0)		19/02/1985	0 tasses
+1)		02/01/1990	0 tasses
+2)		23/05/1990	4 tasses
+3)		31/01/1990	3 tasses
+4)		30/05/1991	1 tasses
+5)		16/05/1992	1 tasses
+
+
+5 - Nombre de personnes qui sont nées en 1990 : 3
+
+
+
+
+*/
