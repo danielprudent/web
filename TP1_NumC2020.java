@@ -5,82 +5,78 @@ class Etudiant {
                      
 
 
-public Etudiant(String date, int cafe)
-{
-this.date  = date; // ce this est obligatoire
-
-this.cafe  = cafe; // ce this est optionnel (facultatif)
-}
-
-public Etudiant(String date)
-{
-this(date, 1); // note globale par défaut
-}
-
-//	public int rangMois()
-//	{
-//	return Integer.parseInt( date.substring(3,6)) % 50 ;
-//	}
-
-//	public String getMois()
-//	{
-//	String[] nomMois = { "Janvier", "Février", "Mars", "Avril", "Mai",
-//	                   "Juin", "Juillet", "Août", "Septembre",
-//	                   "Octobre", "Novembre", "Décembre"};
-//	return nomMois[rangMois()-1];
-//	
-//	}
-//	public int getdate()
-//	{
-//	return Integer.parseInt(date.substring(0,3));
-//	}
-
-
-
-//	public int getJour()
-//	{
-//	return Integer.parseInt(date.substring(0,3));
-//	}
-
-	public int getAnnee()
+	public Etudiant(String date, int cafe)
 	{
-	return  Integer.parseInt(date.substring(7));	}
-
-	//public String getSexe()
-	//{
-	//return date.charAt(6) >= '5' ? "féminin":"masculin";
-	//}
-
-
-	public void afficher()
-	{
-	System.out.printf("%s date: %s  cafe : %d %s %d globale : %.1f\n",
-		date, cafe);
-	}
-
-	public String getDT()
-	{
-	return date;
+	this.date  = date; // ce this est obligatoire
+	
+	this.cafe  = cafe; // ce this est optionnel (facultatif)
 	}
 	
-
-	public int getCF()
+	public Etudiant(String date)
 	{
-	return cafe;
+	this(date, 1); // note globale par défaut
 	}
-//	public void setCF(int nouvGlobale)
-//	{ cafe = nouvGlobale;
-//	if (cafe > 100)
-//		   cafe = 100;
-//	if (cafe < 0)
-//		    cafe = 0;
-//	
-//	}
+	
+	//	public int rangMois()
+	//	{
+	//	return Integer.parseInt( date.substring(3,6)) % 50 ;
+	//	}
+	
+	//	public String getMois()
+	//	{
+	//	String[] nomMois = { "Janvier", "Février", "Mars", "Avril", "Mai",
+	//	                   "Juin", "Juillet", "Août", "Septembre",
+	//	                   "Octobre", "Novembre", "Décembre"};
+	//	return nomMois[rangMois()-1];
+	//	
+	//	}
+	//	public int getdate()
+	//	{
+	//	return Integer.parseInt(date.substring(0,3));
+	//	}
+	
+	
+	
+	//	public int getJour()
+	//	{
+	//	return Integer.parseInt(date.substring(0,3));
+	//	}
+	
+		public int getAnnee()
+		{
+		return  Integer.parseInt(date.substring(7));	}
+	
+		//public String getSexe()
+		//{
+		//return date.charAt(6) >= '5' ? "féminin":"masculin";
+		//}
+	
+	
+		public void afficher()
+		{
+		System.out.printf("%s date: %s  cafe : %d %s %d globale : %.1f\n",
+			date, cafe);
+		}
+	
+		public String getDT()
+		{
+		return date;
+		}
+		
+		public String toString() 	//Redéfinition de toString(): Retourne le format d'affichage d'un Objet de la classe
+	    { 
+			return String.format("%s - %d  tasses", date, cafe);
+	    } 
+		public int getCF()
+		{
+		return cafe;
+		}
 
 	
-	public int getCafe()  				{  	return cafe;  		}
-	public void setCF(int nouvCafe)  	{  	cafe = nouvCafe ; 	}
-  }
+		
+		public int getCafe()  				{  	return cafe;  		}
+		public void setCF(int nouvCafe)  	{  	cafe = nouvCafe ; 	}
+}
 
 
 public class TestPersonne {
@@ -88,43 +84,60 @@ public class TestPersonne {
 	
 	
 	 
-static void afficher (Etudiant[] etud, String mess) { // methode pour afficher les etudiant tableau 
-    System.out.printf("Contenu du tableau %s :\n", mess);
-	for(int i = 0; i < etud.length; i++) {
-		System.out.println(i + ")" + "\t" + etud[i].getDT() + "\t" + etud[i].getCF() + " tasses");
-		//System.out.printf("%3d) %s \n", i,etud[i].getDT(),etud[i].getCF() + "\t" + etud[i].get + " tasses");
-	}    		   
-    System.out.printf("\n\n");
-}
-static int min(Etudiant[]  etud, int nbP)    { // condition pour le cafe min et les infos de la personne
-	int plusPetit = 5;
-	for(int i = 0; i < nbP; i++)
-   	 	if (etud[i].getCF() < etud[plusPetit].getCF())
-   	 	    plusPetit = i;
-
-   return plusPetit;
-   
-}
-
-
-
-static void reduireCafe(Etudiant [] etud, int nbP,int deCombien){ // pour reduire les cafe du 1 du tableau 
-	for(int  i=0; i<nbP; i++) {
-		if(etud [i].getCF() > 0)
-		etud[i].setCF(etud[i].getCF() - 1);
+	static void afficher (Etudiant[] etud, String mess) { // methode pour afficher les etudiant tableau 
+	    System.out.printf("Contenu du tableau %s :\n", mess);
+		for(int i = 0; i < etud.length; i++) {
+			System.out.println(i + ")" + "\t" + etud[i].getDT() + "\t" + etud[i].getCF() + " tasses");
+			
+		}    		   
+	    System.out.printf("\n\n");
+	}
+	static int min(Etudiant[]  etud, int nbP)    { // condition pour le cafe min et les infos de la personne
+		int plusPetit = 5;
+		for(int i = 0; i < nbP; i++)
+	   	 	if (etud[i].getCF() < etud[plusPetit].getCF())
+	   	 	    plusPetit = i;
+	
+	   return plusPetit;
+	   
 	}
 	
-}
+	
+	
+	static void reduireCafe(Etudiant [] etud, int nbP,int deCombien){ // pour reduire les cafe du 1 du tableau 
+		for(int  i=0; i<nbP; i++) {
+			if(etud [i].getCF() > 0)
+			etud[i].setCF(etud[i].getCF() - 1);
+		}
+		
+	}
+	
+	
+	static int nombre(Etudiant[] etud, int nbPers, int annee) { // pour afficher le mois instance
+		  int n = 0;
+		  for (int i = 0; i < nbPers; i++)
+		  	if (etud[i].getAnnee() == annee) 
+		  		n ++ ;
+		  return n ;
+	}   
+	
+	static void trier(Etudiant[] etud, int nbEtud)
+	{
+		for(int i = 0; i < nbEtud-1; i++)
+		{
+			int indMin = i ;
+			for(int j = i+1; j < nbEtud; j++)
+				if (etud[j].getAnnee() < etud[indMin].getAnnee())
+					         indMin = j;
+		    if (indMin != i)
+		    {
+		    	Etudiant tempo = etud[i];
+		    	etud[i] = etud[indMin];
+		    	etud[indMin] = tempo;
+		    }
+		}
+	}
 
-
-static int nombre(Etudiant[] etud, int nbPers, int annee) { // pour afficher le mois instance
-	  int n = 0;
-	  for (int i = 0; i < nbPers; i++)
-	  	if (etud[i].getAnnee() == annee) 
-	  		n ++ ;
-	  return n ;
-}   
-	 
 	
 	public static void main(String[] args) {
 		
@@ -142,27 +155,11 @@ static int nombre(Etudiant[] etud, int nbPers, int annee) { // pour afficher le 
 			    
 				 
 
-//			    static void trier(Etudiant[] etud, int nbEtud)
-			    {
-			    	for(int i = 0; i < nbEtud-1; i++)
-			    	{
-			    		int indMin = i ;
-			    		for(int j = i+1; j < nbEtud; j++)
-			    			if (etud[j].getCF() < etud[indMin].getCF())
-			    				         indMin = j;
-			    	    if (indMin != i)
-			    	    {
-			    	    	Etudiant tempo = etud[i];
-			    	    	etud[i] = etud[indMin];
-			    	    	etud[indMin] = tempo;
-			    	    }
-			    	}
-			    }
+//			    for (int i=0; i<nbEtud; i++)
+//			    	System.out.printf("\nAnnée : %s ", etud[i].getAnnee());
+			    
 			     afficher (etud, "1- au début");
-			    // System.out.printf("Le nombre d'étudiants nés au mois de septembre : %d\n",
-			     //         nombre(etud, nbEtud,9))  ;
-			     //trier(etud, nbEtud); // selon les notes globales
-
+			   
 			     
 			     
 
@@ -170,18 +167,18 @@ static int nombre(Etudiant[] etud, int nbPers, int annee) { // pour afficher le 
 			     //Pour afficher information de la personne avec le moins de cafe
 			    int m = min(etud, nbEtud);
 			   	System.out.println(m + ")" + "\t" + etud[m].getDT() + "\t" + etud[m].getCF() + " tasses");
+			   	System.out.printf("\t%s\n", etud[m].toString());
 			     
 
 				
 				 // Pour reduire le cafe de 1 (tout les etudiants)
 				reduireCafe(etud,nbEtud,1);
 				  afficher(etud, "3- après la reduction");
-				//int i = etud[i].getCF();
-				//System.out.println(i + ")" + "\t" + etud[i].getDT() + "\t" + etud[i].getCF() + " tasses");
 				
-				  
+				
+				  trier(etud,nbEtud);
 				  afficher(etud, "4- après le tri selon les notes globales");
-				     //System.out.printf("\nLe min de cafe consommer: %.1f", min(etud, nbEtud));
+				     
 				  
 				  System.out.printf("5 - Nombre de personnes qui sont nées en 1990 : %d\n",
 			               nombre(etud, nbEtud, 1990));
@@ -199,5 +196,5 @@ static int nombre(Etudiant[] etud, int nbPers, int annee) { // pour afficher le 
 
 		
 		
-	}
-}
+	}//main
+}//TestPersonne
