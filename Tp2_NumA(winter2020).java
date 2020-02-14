@@ -27,14 +27,14 @@ class Employe {
 	  	System.out.printf(" %sNAS : %s | salaire : %.2f", message , NAS, salaire);
 	 }
 	
-	public void setsalaire(double sal)
+	public void setSalaire(double sal)
 	{
 		this.salaire =  sal;
 		 
 
 		
 	}
-	public double getsalaire()
+	public double getSalaire()
 	{
 		return salaire ;
 		 
@@ -62,7 +62,7 @@ public class TestEmploye {
 	static void afficher (Employe[] emp, String mess) { // methode pour afficher les etudiant tableau 
 	    System.out.printf("Contenu du tableau %s :\n", mess);
 		for(int i = 0; i < emp.length; i++) {
-			System.out.println(i + ")" + "\t" + emp[i].getNAS() + "\t" + emp[i].getsalaire() + "$");
+			System.out.println(i + ")" + "\t" + emp[i].getNAS() + "\t" + emp[i].getSalaire() + "$");
 			
 		}    		   
 	    System.out.printf("\n\n");
@@ -85,7 +85,15 @@ public class TestEmploye {
 		}
 	}
 	
-	
+	 //static int nombre (double salaire, String[] NAS, int nbPers) // compteur pour operateur et analystes et secretaires
+	 static int nombre (Employe [] emp, int nbPers, double val, char c)
+	   {
+	       int n = 0 ;
+	       for(int i = 0; i < nbPers; i++)
+	           if (emp[i].getSalaire()<=val && emp[i].getNAS().indexOf(c) >= 0)
+	               n++;
+	       return n;
+	    }  
 	
 	
 	
@@ -106,7 +114,7 @@ public class TestEmploye {
 	      emp4.afficher("2- Information de l'employé 4 : \n");
 	      System.out.printf("\n\n");
 	      
-		  emp2.setsalaire(emp3.getsalaire()+emp1.getsalaire());
+		  emp2.setSalaire(emp3.getSalaire()+emp1.getSalaire());
 		// afficher toutes les infos de emp4:
 	      emp2.afficher("3- Information de l'employé 2 : \n");
 	      System.out.printf("\n\n");
@@ -119,7 +127,6 @@ public class TestEmploye {
           3       "231 467 890"        1671.50$
           4       "478 343 689"        1750.75$
           5       "371 238 432"        50 hrs au taux de 20.25$ de l’heure
-
 	        
 	       */
 	      Employe [] emp  = {new Employe ("250 642 753", 1234.56), 
@@ -144,7 +151,12 @@ public class TestEmploye {
 	      
 	      trier(emp, nbEtud);
 	      afficher(emp, "\n4- Apres le tri selon NAS");
-		   
+		  
+	      double val=1300.0; char c='5';
+	      System.out.printf("\n5- Le nombre d'employé qui gagne moins que %.2f & dont le NAS contient %c est : %d\n", val, c, nombre (emp, nbEtud, val, c));
+	      val=750.0; c='3';
+	      System.out.printf("\n5- Le nombre d'employé qui gagne moins que %.2f & dont le NAS contient %c est : %d\n", val, c, nombre (emp, nbEtud, val, c));
+
 	}
 
 }
