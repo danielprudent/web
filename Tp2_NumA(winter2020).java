@@ -217,3 +217,54 @@ public class TestEmploye { // debut mainn (TestPersonne)
 
 }
 
+/*
+2- Information de l'employé 3 : 
+NAS : 250 343 678 | salaire : 1030.00
+
+ 2- Information de l'employé 4 : 
+NAS : 450 279 321 | salaire : 1750.75
+
+ 3- Information de l'employé 2 : 
+NAS : 123 456 789 | salaire : 2264.56
+
+
+Contenu du tableau 
+1- Au debut :
+0)	250 642 753	1234.56$
+1)	123 456 789	1250.25$
+2)	250 343 654	690.0$
+3)	231 467 890	1671.5$
+4)	478 343 689	1750.75$
+5)	371 238 432	1012.5$
+
+
+
+	250 642 753  -	1234.56
+	123 456 789  -	1250.25
+	250 343 654  -	690.00
+	231 467 890  -	1671.50
+	478 343 689  -	1750.75
+	371 238 432  -	1012.50
+Contenu du tableau 
+4- Apres le tri selon NAS :
+0)	123 456 789	1250.25$
+1)	231 467 890	1671.5$
+2)	250 343 654	690.0$
+3)	250 642 753	1234.56$
+4)	371 238 432	1012.5$
+5)	478 343 689	1750.75$
+
+
+
+5- Le nombre d'employé qui gagne moins que 1300.00 & dont le NAS contient 5 est : 3
+
+5- Le nombre d'employé qui gagne moins que 750.00 & dont le NAS contient 3 est : 1
+
+7- Début de la création du fichier :
+
+7- Fin de la création du fichier empTri.dta
+
+
+
+*/
+
