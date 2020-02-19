@@ -5,13 +5,10 @@
  * On dispose de la classe incomplète Employe suivante : 
 		class Employe et aussi TestPErsonne qui contient le main 
 		1)  Écrivez les constructeurs utilisant de this pour instancier les 4 employés suivants :
-
 2) Écrivez la méthode afficher appropriée puis on l’utilise pour afficher les informations de emp3 et 
     emp4;
-
 3) Modifiez le salaire de emp2 : c’est la somme de salaires de emp1 et emp3. On affiche les 
      informations de emp2 ;
-
 4) Écrivez la déclaration et l’initiation d’un tableau de 6 employés dont le contenu est le 
   suivant :
 5) Écrivez de méthode(s) et leur(s) appel(s) pour compter puis afficher le nombre 
@@ -19,10 +16,10 @@
 a) qui gagnent moins de 1300.00$ par semaine dont le NAS contient  ‘5’ 
 b) qui gagnent moins de 750.00$ par semaine dont le NAS contient ‘3’
 6) Triez le tableau (le tri par sélection) selon les NAS de ces 6 employés;
-
 7) Créez le fichier texte "empTri.dta" dont le format est à votre imagination.
 Les 7 numero sont parfaitement inscrit durant l'execution et en commentaire 
 */
+import java.io.*;
 class Employe {
 	
 
@@ -85,7 +82,7 @@ class Employe {
 public class TestEmploye { // debut mainn (TestPersonne)
 
 	static void afficher (Employe[] emp, String mess) { // methode pour afficher les employe tableau 
-	    System.out.printf("Contenu du tableau %s :\n", mess);
+	    System.out.printf("\nContenu du tableau %s :\n", mess);
 		for(int i = 0; i < emp.length; i++) {
 			System.out.println(i + ")" + "\t" + emp[i].getNAS() + "\t" + emp[i].getSalaire() + "$");
 			
@@ -120,16 +117,45 @@ public class TestEmploye { // debut mainn (TestPersonne)
 	       return n;
 	    }  
 	
+	   	static void creerTexte(String nomACreer, Employe [] emp,  int nbPers)
+	 		throws IOException
+	 	{
+
+	 		boolean probleme = false;
+	 		FileWriter fw = null;
+	 		try
+	 		{
+	 		    fw = new FileWriter(nomACreer);
+	 		} catch (java.io.FileNotFoundException erreur)
+	 		{
+	 			System.out.println("7- Problème de préparer l'écriture\n");
+	 			probleme = true;
+	 		}
+	 		if (!probleme)
+	 		{
+	 			System.out.println("7- Début de la création du fichier :\n");
+	 			PrintWriter aCreer = new PrintWriter( fw );
+
+	         	for(int i = 0; i < nbPers; i++)
+	         		{
+
+	 		           aCreer.printf("%s %8.1f", emp[i].getNAS(), emp[i].getSalaire());
+	                    aCreer.println();
+	         		}
+	 			aCreer.close();
+	 			System.out.println("7- Fin de la création du fichier " + nomACreer + "\n\n");
+	 		}
+
+	 	}
 	
-	
-	public static void main(String[] args) { // main fonction
+	public static void main(String[] args) throws IOException{ // main fonction
 		
 		Employe emp1 = new Employe("250 642 753", 1234.56), // instancier employer
 		        emp2 = new Employe("123 456 789"), // par défaut 1250.25$
 		        emp3 = new Employe("250 343 678", 40.00, 25.75),
 		        // salHebdo = 40 heures par semaine x taux d’horaire 25.75$
 		        emp4 = new Employe("450 279 321", 1750.75);
-
+		String nomACreer = "empTri.dta";
 		
 		 // afficher toutes les infos de emp3:
 	      emp3.afficher("2- Information de l'employé 3 : \n");
@@ -181,8 +207,12 @@ public class TestEmploye { // debut mainn (TestPersonne)
 	      System.out.printf("\n5- Le nombre d'employé qui gagne moins que %.2f & dont le NAS contient %c est : %d\n", val, c, nombre (emp, nbEtud, val, c));
 	      // l'affichage methode nombre
 	      val=750.0; c='3';								// variable pour la condition methode nombre moins que 750 et avoir le chiffre 3
-	      System.out.printf("\n5- Le nombre d'employé qui gagne moins que %.2f & dont le NAS contient %c est : %d\n", val, c, nombre (emp, nbEtud, val, c));
+	      System.out.printf("\n5- Le nombre d'employé qui gagne moins que %.2f & dont le NAS contient %c est : %d\n\n", val, c, nombre (emp, nbEtud, val, c));
 	      // affichage methode nombre
+	      
+	      //7) Créez le fichier texte "empTri.dta" dont le format est à votre imagination.
+	      creerTexte(nomACreer,emp,nbEtud);
+	     
 	}
 
 }
