@@ -263,6 +263,12 @@ Contenu du tableau
 7- Début de la création du fichier :
 
 7- Fin de la création du fichier empTri.dta
+123 456 789   1250,3
+231 467 890   1671,5
+250 343 654    690,0
+250 642 753   1234,6
+371 238 432   1012,5
+478 343 689   1750,8
 
 
 
