@@ -1,0 +1,124 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+        
+	function convert(){
+		var c = document.getElementById('data').value;
+		var f = ( c * 1.8) + 32;
+		document.getElementById('res').innerText = `${c} C = ${f.toFixed(1)} F `;
+		}
+		 
+		function convert1(){
+		var f = document.getElementById('data').value;
+		var c = ( f - 32) * 5/9;
+		document.getElementById('res').innerText = `${f} F = ${c.toFixed(1)} C `;
+		}
+		
+		function in_to_cm(){
+		var v_in = document.getElementById('data').value;
+		var v_cm = v_in*2.54;
+		document.getElementById('res').innerText=`${v_in} in = ${v_cm.toFixed(1)} cm `;
+		}
+		
+		function cm_to_in(){
+		var v_cm = document.getElementById('data').value;
+		var v_in = v_cm * 0.39370079;
+		document.getElementById('res').innerText=`${v_cm} cm = ${v_in.toFixed(1)} in `;
+		}
+	
+		// Part 2
+		function form1() {
+		  let name = document.getElementById("name").value;
+		  let level = document.getElementById("level").value;
+		
+		  if ([1, 2, 3, 4, 5, 6, 7].includes(parseInt(level))) {
+		    document.getElementById("res11").style.color = "#0f0";
+		    document.getElementById("res11").innerHTML =
+		      "<h" + level + ">Hello " + name + " level=" + level + "</h" + level + ">";
+		  } else {
+		    document.getElementById("result-part2").style.color = "#f00";
+		    document.getElementById("result-part2").innerHTML =
+		      "Error level must be between 1 to 6";
+		  }
+		}
+		
+		
+
+
+ </script>
+<link href="test1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<body>
+
+	<h1>Assignment 3</h1>
+	<h2>Identification</h2>
+	<p>This assignment was made by Daniel Prudent 20163767 </p>
+	<h2>Part 1 : Conversion form</h2>
+  <hr>
+    Value: 
+      <input type="" name="" id="data"  >  <span>Result here :<p id="res"></p></span>
+           <button onclick="in_to_cm()">Inches to Centimeter </button>
+           <button onclick="cm_to_in()">Centimeter to Inches </button>
+           <button onclick="convert()">Celsius to Farenheit </button>
+           <button onclick="convert1()">Farenheit to Celsius </button>
+         <div id="part2">
+      <h2>Part 2: Display in web page controlled by Javascript</h2>
+        <hr>
+        <p>
+        <label for="field-name">Name: </label>
+        <input type="text" id="name">
+      </p>
+      <p>
+        <label for="field-level">Level (1 to 6): </label>
+        <input type="text" id="level">
+        <input type="button" value="Show part 2" onclick="form1()">
+      </p>
+      <p id="res11">Show here</p>
+    </div>
+     <h2>Part 3: Menu display, image animation and cost calculation</h2>      
+     <hr>
+     <div id='menu'>
+		<ul>
+		   <li class="choisir">Menu</li>
+		   <li>Éntrée
+			  <ul>
+				 <li>Escargot</li>
+				 <li>Salade verte</li>
+				 <li>Salade césar</li>
+			  </ul>
+		   </li>
+		   <li>Main
+			  <ul>
+				 <li>Spaghetti</li>
+				 <li>Steak</li>
+				 <li>Pizza</li>
+			  </ul>
+		   </li>
+		   <li>Dessert
+			  <ul>
+				 <li>Gateau</li>
+							  </ul>
+		   </li>
+		   <li>Beverages
+			  <ul>
+				 <li>Cafe</li>
+							  </ul>
+		   </li>
+
+		</ul>
+		</div>
+		<div id="affichage">
+		</div>
+      		
+		 
+
+
+
+</body>
+
+</html>
