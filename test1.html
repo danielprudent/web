@@ -1,6 +1,7 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+<title>Travail pratique #3 - Daniel Prudent - IFT1144</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script language="javascript" type="text/javascript">
 
@@ -44,16 +45,82 @@
 		      "Error level must be between 1 to 6";
 		  }
 		}
+				
 		
+		$(document).ready(function(){
+
+	var monMenu = { 
+	"Escargot": {cat: "Entree", image: "escargot.jpg", prix: 5.50}, 
+	"Salade verte" : {cat: "Entree", image: "salade2.jpg", prix: 5.95}, 
+	"Salade César": {cat: "Entree", image: "salade.jpg", prix: 6.95}, 
+	"Spaghetti": {cat: "Principal", image: "spaghetti.jpg", prix: 15.95},
+	 "Steak": {cat: "Principal", image: "steak.jpg", prix: 25.95}, 
+	"Pizza": {cat: "Principal", image: "pizza.jpg", prix: 17.95},
+	 "Crème glacée": {cat: "Dessert", image: "cremeglacee.jpg", prix: 4.25}, 
+	"Gateau": {cat: "Dessert", image: "gateau.jpg", prix: 4.95}, 
+	"Pouding": {cat: "Dessert", image: "pouding.jpg", prix: 3.95}, 
+	"Café / Thé": {cat: "Boisson", image: "cafe.jpg", prix: 2.50}, 
+	"Boisson gazeuse": {cat: "Boisson", image: "boisson.jpg", prix: 2.95}};
+
+	// cette fonction est le gestionnaire d'événement clique du li de premier niveau
+		$('li').on('click', function(e) {
+		    if ($(this).hasClass('choisir'))
+				return; // on ne fait rien il est déjà sélectionné
+			var element = $(this).parent();
+			// on enlève la classe choisir de tous les li et on cache les sous-listes
+			element.find('li').removeClass('choisir').find('ul').hide();
+			// on sélectionne le li courant (avec la classe choisir et on montre la sous-liste
+			$(this).addClass('choisir').children('ul').slideToggle(500);
+		});
 		
+		// cette fonction est le gestionnaire d'événement clique du li de second niveau
+		$('li li').on('click', function(e) {
+		    // on obtient l'objet correspondant à la sélection
+			var choixMenu = monMenu[$(this).html()];
+			// on y extrait le nom de la catégorie et on l'ajoute à #img pour obtenir l'id de l'image correspondat
+			var idImg = "#img"+choixMenu["cat"];
+			// même chose pour le id du prix
+			var idPrix = "#prix"+choixMenu["cat"];
+			// on extrait le nom du fichier image correspondant
+			var nomFichierImg = "images/"+choixMenu["image"];
+			// on extrait le prix 
+			var prix = choixMenu["prix"];
+			// voici un exemple de ce qu'on peut obtenir du tableau... pas utile pour l'affichage du tp
+			alert("Choix:"+$(this).html()+" id image:"+idImg+" nom fichier:"+nomFichierImg+
+			     " idPrix:"+idPrix+" prix:"+prix);
+			// on met le prix dans la balise html span correspondante 
+		    $(idPrix).html(prix);
+			// on modifie l'image en changeant l'attribut src avec le nom du fichier
+		    $(idImg).attr("src",nomFichierImg);
+		});
+		
+		$('button').on('click', function(e) {
+			var prixEntree = 0; // il faut aller chercher le montant dans la page Web 
+			                       // par exemple parseFloat($("#prixOrdinateur").html());
+			var prixMain = 0; // il faut aller chercher le montant dans la page Web
+			var prixDessert = 0;
+			var prixBeverage = 0;
+			 // il faut aller chercher le montant dans la page Web
+			// dans les 3 lignes suivantes on valide que les valeurs sont numériques sinon
+			// on utilise 0 dans les calculs...
+			if (isNaN(prixEntree)) prixEntree = 0;
+			if (isNaN(prixPrincipal)) prixMain = 0;
+			if (isNaN(prixDessert)) prixDessert = 0;
+			if (isNaN(prixBeverage)) prixBeverage = 0;
+			// il reste à additionner les 3 prix... et calculer les taxes...
+			alert("Total: "+"calculated value $");
+		});
+		
+		});
+	
+</script>
 
-
- </script>
 <link href="test1.css" rel="stylesheet" type="text/css">
+<link href="New%20folder/test1.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<body>
+
 
 	<h1>Assignment 3</h1>
 	<h2>Identification</h2>
@@ -102,11 +169,17 @@
 		   <li>Dessert
 			  <ul>
 				 <li>Gateau</li>
+				 <li>Poudding</li>
+				 <li>Creme glacé</li>
+
+
 							  </ul>
 		   </li>
 		   <li>Beverages
 			  <ul>
-				 <li>Cafe</li>
+				 <li>Cafe/The</li>
+				 <li>Boisson gazeuse</li>
+
 							  </ul>
 		   </li>
 
@@ -114,10 +187,37 @@
 		</div>
 		<div id="affichage">
 		</div>
-      		
+      		<div id="affichage">
+		  <p class="categorie" id="Entrée">
+		     <!-- ici l'image <img ...> et le prix <span id="prixEcran">prix</span> -->
+		  </p>
+		  <p class="categorie" id="Main">
+                     <img src="" alt="kk" id="imgOrdinateur">
+                     <span id="prixOrdinateur">
+                  </p>
+		  <p class="categorie" id="Dessert">
+                     <img src="toto.jpg" alt="kk" id="imgTelephone">
+                     <span id="prixTelephone">
+                  </p>
+                  <p class="categorie" id="Beverages">
+                     <img src="toto.jpg" alt="kk" id="imgTelephone">
+                     <span id="prixTelephone">
+                  </p>
+
+		</div>
+	</div>
+
+	<button>Calcul</button>
 		 
 
-
+ <p class="float-left">
+        <img alt="html" height="15" src="New%20folder/images/images/valid_html_blue.png" width="80"><a href="http://validator.w3.org/check/referer" target="_blank"
+          ></a></p>
+      <p class="float-right">
+        <img alt="css" height="15" src="New%20folder/images/images/valid_css_blue.png" width="80"><a
+          href="http://jigsaw.w3.org/css-validator/check/referer"
+          target="_blank"
+          ></a></p>
 
 </body>
 
